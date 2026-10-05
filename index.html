@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sanjana Kadapatti — Software Engineer portfolio. Python, AI, backend development, networking and automation." />
+  <meta name="description" content="Sanjana Kadapatti — Software Engineer portfolio. Python, backend development, networking and automation." />
   <title>Sanjana Kadapatti | Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,23 +26,26 @@
   <main>
     <section class="hero" id="home">
       <div class="hero-copy">
-        <p class="eyebrow">SOFTWARE ENGINEER · PYTHON · AI · NETWORK AUTOMATION</p>
+        <p class="eyebrow">SOFTWARE ENGINEER · PYTHON · NETWORK AUTOMATION</p>
         <div class="hero-title-row">
           <img
             class="profile-hero"
             src="Sanjana_Professional.jpeg"
             alt="Sanjana Kadapatti"
           />
-          <h1>Hi, I'm <span>Sanjana Kadapatti.</span></h1>
+          <h1>
+            <span class="line-one">Hi, I'm</span>
+            <span class="line-two">Sanjana Kadapatti</span>
+          </h1>
         </div>
         <p class="hero-text">
-          Computer Science Engineer crafting practical software with Python, AI, backend development,
+          Computer Science Engineer building practical software with Python, backend development,
           networking, and automation.
         </p>
         <div class="hero-card education-card">
           <div>
             <strong>Education</strong>
-            <p>BE in Computer Science<br />KLE Institute of Technology · 2020–2024</p>
+            <p>B.E. in Computer Science<br />KLE Institute of Technology, Hubli · 2020–2024<br />CGPA: 8.6/10</p>
           </div>
         </div>
         <div class="actions">
@@ -60,12 +63,12 @@
     <section id="about" class="section">
       <div class="section-head">
         <p class="eyebrow">ABOUT</p>
-        <h2>Building at the intersection of software, AI and systems.</h2>
+        <h2>Building practical software with automation and network systems.</h2>
       </div>
       <p class="lead">
-        I enjoy turning engineering problems into reliable, automated workflows. My experience includes
-        AI-assisted code documentation, IOS-XR simulator topology automation, backend development,
-        RAG-based document intelligence and ATS-focused AI applications.
+        I enjoy turning engineering problems into reliable, automation-driven solutions. My experience spans
+        Python-based automation for IOS-XR workflows, SIM topology automation, document intelligence workflows,
+        and backend/web development with a strong focus on practical, scalable systems.
       </p>
     </section>
 
@@ -78,15 +81,18 @@
         <div class="timeline-top">
           <div>
             <h3>Software Engineer Trainee</h3>
-            <p class="company">Cisco Systems · Bengaluru, Karnataka</p>
+            <p class="company">Cisco Systems · Bengaluru</p>
           </div>
           <span>Aug 2025 – Aug 2026</span>
         </div>
         <ul>
-          <li>Architected an AI-assisted documentation workflow for IOS-XR AP Python code using Python, AST/tokenize metadata extraction, LLM-driven comment generation and Git/GitHub automation.</li>
-          <li>Built deterministic pipelines for intent extraction, comment generation, annotated-file creation and PR-ready publishing using YAML configuration and CLI orchestration.</li>
-          <li>Developed a SIM topology automation framework that parses AP/Sub-AP metadata, topology variants and CAFY POD/topology JSON inputs to generate simulator-ready YAML.</li>
-          <li>Automated topology inventory, validation and HTML/CSV coverage reporting, plus AP/Sub-AP detection, generated-file manifests, branch creation, CDET and GitHub PR flows.</li>
+          <li>Architected a Python-based documentation workflow for IOS-XR AP code using AST/tokenize metadata extraction, structured documentation generation, and Git/GitHub automation to improve documentation accuracy and consistency.</li>
+          <li>Built deterministic Python pipelines for intent extraction, documentation-gap analysis, annotated file creation, and PR-ready publishing using YAML configuration, CLI orchestration, and structured metadata processing.</li>
+          <li>Developed automated AST/tokenize-based code analysis to identify missing documentation across functions, classes, logging statements, and Allure steps, generating structured reports for targeted updates.</li>
+          <li>Developed a SIM topology automation framework using Python, PyYAML, YAML/JSON parsing, AP/Sub-AP metadata, testcase topology variants, and CAFY POD/topology JSON inputs to generate simulator-ready configurations.</li>
+          <li>Automated topology inventory, validation, metadata normalization, and HTML/CSV coverage reporting, reducing manual topology creation and improving consistency across simulator configurations.</li>
+          <li>Automated end-to-end workflows for AP/Sub-AP detection, generated-file manifests, Git branching, CDET integration, and GitHub PR flows, enabling controlled and review-ready documentation changes.</li>
+          <li>Integrated Python scripting, Shell/CLI automation, Git/GitHub, and testbed workflows to streamline IOS-XR automation tasks and reduce repetitive manual operations across documentation and SIM topology processes.</li>
         </ul>
       </article>
     </section>
@@ -98,21 +104,15 @@
       </div>
       <div class="project-grid">
         <article class="project-card featured">
-          <span class="tag">AI · Python · FastAPI</span>
-          <h3>AI-Powered ATS Resume Scorer</h3>
-          <p>End-to-end resume analysis platform that parses PDF/DOCX resumes, evaluates ATS compatibility and generates actionable feedback with Groq-powered insights.</p>
-          <div class="stack"><span>Python</span><span>FastAPI</span><span>Streamlit</span><span>Sentence Transformers</span><span>Supabase</span></div>
-        </article>
-        <article class="project-card">
-          <span class="tag">RAG · n8n · LLM</span>
-          <h3>RAG-Based Document Intelligence</h3>
-          <p>Document Q&A workflow that ingests PDFs from Google Drive, creates embeddings, stores them in Pinecone and delivers context-aware answers through Telegram.</p>
-          <div class="stack"><span>n8n</span><span>RAG</span><span>LLM</span><span>Embeddings</span><span>Pinecone</span></div>
+          <span class="tag">n8n · Workflow Automation</span>
+          <h3>Document Intelligence System</h3>
+          <p>Workflow-driven document processing system that ingests PDFs from Google Drive and enables users to query stored content through Telegram for faster information access.</p>
+          <div class="stack"><span>n8n</span><span>Python</span><span>Google Drive</span><span>Telegram</span></div>
         </article>
         <article class="project-card">
           <span class="tag">Web · Backend</span>
           <h3>E-Fy – A Techtainment Book</h3>
-          <p>KSCST-sponsored web application for event scheduling, registration and data management, built with frontend technologies and a PHP/MySQL backend.</p>
+          <p>KSCST-sponsored web application for event scheduling, registration, and data management, built using HTML5, CSS3, JavaScript, and MySQL with backend integration and validation.</p>
           <div class="stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span><span>MySQL</span></div>
         </article>
       </div>
@@ -124,28 +124,37 @@
         <h2>Technical toolkit</h2>
       </div>
       <div class="skills">
-        <div><h3>Programming & CS</h3><p>Python · Java · OOP · Data Structures & Algorithms · DBMS · Operating Systems</p></div>
-        <div><h3>Backend & Data</h3><p>REST APIs · API Integration · SQL · MySQL · MongoDB · Backend Development</p></div>
-        <div><h3>AI</h3><p>LLMs · RAG · Prompt Engineering · Agentic AI Fundamentals</p></div>
-        <div><h3>Automation</h3><p>Python Scripting · CLI Automation · YAML/JSON Parsing · CDET · Testbed Integration · PR Automation</p></div>
-        <div><h3>Networking</h3><p>IOS-XR · OSI/TCP-IP · IPv4/IPv6 · Subnetting · Routing · Switching · VLANs · OSPF · NAT · ACLs · DHCP · DNS</p></div>
-        <div><h3>Tools & Web</h3><p>Linux · Shell Scripting · Git · GitHub · OpenAI Codex · HTML5 · CSS3 · JavaScript</p></div>
+        <div><h3>Programming Languages</h3><p>Java · Python</p></div>
+        <div><h3>Web Development</h3><p>HTML · CSS · JavaScript · REST APIs · GitHub API</p></div>
+        <div><h3>Databases</h3><p>SQL · MySQL · MongoDB (NoSQL) · DBMS</p></div>
+        <div><h3>Core CS Fundamentals</h3><p>Object-Oriented Programming (OOP) · Data Structures & Algorithms · Operating Systems</p></div>
+        <div><h3>Development Tools</h3><p>Linux · Shell Scripting · Git · GitHub</p></div>
+        <div><h3>Networking</h3><p>Cisco IOS-XR · CCNA-level Networking · OSI/TCP-IP · IPv4/IPv6 · Subnetting · Routing · Switching · VLANs · STP · OSPF · NAT · ACLs · DHCP · DNS · Network Security · Troubleshooting</p></div>
+        <div><h3>Network Automation</h3><p>Python Scripting · CLI Automation · YAML/JSON Parsing · CDET · Testbed Integration · PR Automation</p></div>
       </div>
     </section>
 
     <section class="section credentials">
       <div class="section-head">
         <p class="eyebrow">CREDENTIALS</p>
-        <h2>Certifications & recognition</h2>
+        <h2>Certifications</h2>
       </div>
       <div class="credential-grid">
-        <div>CCNA</div>
-        <div>Cisco Certified AI Technical Practitioner</div>
+        <div>Cisco Certified Network Associate (CCNA)</div>
         <div>Cisco Certified Network Associate Automation</div>
-        <div>Java Basics — Coding Ninjas (Code 360)</div>
-        <div>Cisco “Play to Win” Award</div>
-        <div>Qubit research paper — AI-driven intent-aware code documentation</div>
-        <div>KSCST sponsorship — E-Fy</div>
+        <div>Java Basics certification — Coding Ninjas (Code 360)</div>
+      </div>
+    </section>
+
+    <section class="section credentials">
+      <div class="section-head">
+        <p class="eyebrow">RECOGNITION</p>
+        <h2>Awards & Recognition</h2>
+      </div>
+      <div class="credential-grid">
+        <div>Cisco “Play to Win” Award for the project “AI-Assisted Code Documentation Generator”</div>
+        <div>Published a research paper on “AI-driven intent-aware code documentation” in Cisco’s proprietary “Qubit” platform</div>
+        <div>KSCST sponsorship for E-Fy – A Techtainment Book</div>
       </div>
     </section>
 
@@ -166,7 +175,7 @@
     <section id="contact" class="contact">
       <p class="eyebrow">LET'S CONNECT</p>
       <h2>Looking for software engineering opportunities.</h2>
-      <p>Interested in software development, AI applications, backend engineering and automation.</p>
+      <p>Interested in software development, backend engineering and automation.</p>
       <a class="btn primary" href="mailto:kadapattisanjana@gmail.com">Email Sanjana</a>
     </section>
   </main>

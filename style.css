@@ -79,7 +79,7 @@ img{max-width:100%;display:block}
 }
 .hero-copy{
     width:100%;
-    max-width:700px;
+    max-width:760px;
     text-align:left
 }
 .eyebrow{
@@ -94,20 +94,32 @@ img{max-width:100%;display:block}
     display:flex;
     align-items:center;
     justify-content:flex-start;
-    gap:22px;
-    margin-bottom:24px
+    gap:30px;
+    margin-bottom:24px;
+    width:100%;
+    min-width:0
 }
 .hero h1{
     font-size:clamp(2.8rem,6vw,5.3rem);
-    line-height:1.02;
+    line-height:0.95;
     letter-spacing:-.065em;
     margin:0;
     flex:1;
-    text-align:left
+    text-align:left;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px
 }
-.hero h1 span{
+.hero h1 .line-one{
     display:block;
-    color:var(--primary)
+    color:var(--text);
+}
+.hero h1 .line-two{
+    display:block;
+    color:var(--primary);
+    white-space:nowrap
 }
 .profile-hero{
     width:220px;
@@ -263,15 +275,17 @@ img{max-width:100%;display:block}
     gap:22px
 }
 .project-grid{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    margin-top:28px
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    margin-top:28px;
+    max-width:920px
 }
 .project-card{
-    padding:22px 22px 18px;
+    padding:24px 24px 20px;
     display:flex;
     flex-direction:column;
     gap:12px;
-    min-height:100%
+    min-height:100%;
+    height:100%
 }
 .project-card.featured{
     border-color:rgba(79,70,229,.25);
@@ -442,4 +456,54 @@ footer{
     .btn{
         width:100%
     }
+}
+
+body.dark{
+    --bg:#111827;
+    --bg-strong:#1f2937;
+    --surface:#1f2937;
+    --surface-soft:#273449;
+    --primary:#a5b4fc;
+    --primary-strong:#c7d2fe;
+    --text:#f3f4f6;
+    --muted:#cbd5e1;
+    --border:#374151;
+    --shadow:0 20px 45px rgba(0,0,0,.2);
+    background:linear-gradient(180deg,#111827 0%, #172033 100%);
+}
+
+body.dark .nav{
+    background:rgba(17,24,39,.88);
+    border-bottom-color:var(--border)
+}
+
+body.dark .hero-card,
+body.dark .project-card.featured{
+    background:linear-gradient(180deg,#1f2937 0%, #222b42 100%)
+}
+
+body.dark .stack span{
+    background:#374151;
+    color:var(--text)
+}
+
+body.dark .primary{
+    background:linear-gradient(135deg,#4f46e5,#4338ca);
+    color:#ffffff
+}
+
+body.dark .secondary{
+    background:var(--surface);
+    color:var(--text);
+    border-color:var(--border)
+}
+
+body.dark .theme-btn{
+    background:var(--surface);
+    color:var(--text);
+    border-color:var(--border)
+}
+
+body.dark footer{
+    border-top-color:var(--border)
 }
