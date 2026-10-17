@@ -1,38 +1,54 @@
-# Sanjana Kadapatti — Portfolio
+# Sanjana Kadapatti — portfolio
 
-A responsive personal portfolio website built with **HTML, CSS and JavaScript**.
+A responsive personal portfolio built with HTML, CSS, and JavaScript. The page
+content is maintained in `assets/js/data.js`, and the resume PDF is served from
+`assets/resume.pdf`.
 
-## Highlights
-- Software engineering experience
-- AI and RAG projects
-- Network automation experience
-- Technical skills and certifications
-- Responsive design
-- Light/dark theme toggle
-- LinkedIn/GitHub/contact links
+## Portfolio sections
+
+- Education and technical skills
+- Cisco Systems experience in software engineering and automation
+- Projects in RAG-based document intelligence and event management
+- Certifications, recognition, and research
+- GitHub, LinkedIn, and contact links
+- Resume download and in-page PDF preview
+
+## Update the content
+
+1. Edit `assets/js/data.js` to update the profile, skills, experience, projects,
+   achievements, and links.
+2. Replace `assets/resume.pdf` to publish a new resume, keeping the same path.
+3. Add project screenshots under `assets/img/` and set the project's `image`
+   value in `data.js`. Leave it empty to use the generated project cover.
 
 ## Run locally
 
-No build tools are required.
+Open `index.html` in a browser, or start a local server from this folder:
 
 ```bash
-git clone <your-repository-url>
-cd sanjana-portfolio
+python -m http.server
 ```
 
-Open `index.html` in a browser.
+Then visit http://localhost:8000.
 
-## Deploy with GitHub Pages
+## Deploy to GitHub Pages
 
-1. Create a public repository named `sanjana-portfolio`.
-2. Upload `index.html`, `style.css`, `script.js`, and `README.md`.
-3. Go to **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select `main` and `/ (root)`.
-6. Save and wait for GitHub Pages to publish the site.
+Upload the contents of this folder to a GitHub repository, keeping `index.html`
+at the repository root and including `.nojekyll`. In the repository's
+**Settings → Pages**, select **Deploy from a branch**, choose the `main` branch
+and the root folder, then save.
 
-Then use the published URL in LinkedIn → Featured.
+All site assets use relative paths so the portfolio can also be hosted under a
+repository subpath.
 
-## Customize before publishing
+## Files
 
-Replace the placeholder LinkedIn and GitHub URLs in `index.html` with the actual profile URLs.
+```
+index.html            page structure
+assets/css/style.css  styles and animations
+assets/js/data.js     portfolio content
+assets/js/main.js     rendering and interaction logic
+assets/resume.pdf     resume PDF
+assets/img/           image assets
+.nojekyll             serves files as-is on GitHub Pages
+```

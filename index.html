@@ -1,189 +1,402 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sanjana Kadapatti — Software Engineer portfolio. Python, backend development, networking and automation." />
-  <title>Sanjana Kadapatti | Software Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanjana Kadapatti · Portfolio</title>
+  <meta name="description" content="Sanjana Kadapatti is a software engineer with experience in Python automation, AI-assisted documentation, network topology automation, and RAG applications." />
+  <meta name="theme-color" content="#0B0D24" />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Sanjana Kadapatti · Portfolio" />
+  <meta property="og:description" content="Software engineer building with Python, AI-assisted documentation, network automation, and RAG applications." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236CF0D2'/%3E%3Cstop offset='1' stop-color='%238C7BFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230B0D24'/%3E%3Ccircle cx='32' cy='32' r='14' fill='url(%23g)'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body>
-  <header class="nav">
-    <a class="logo" href="#home">Sanjana Kadapatti</a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+<body class="is-loading">
+
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__ring"><span></span><span></span><span></span></div>
+    <div class="loader__count"><span id="loaderCount">0</span>%</div>
+  </div>
+
+  <!-- Background layers -->
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__blob a1"></span>
+    <span class="aurora__blob a2"></span>
+    <span class="aurora__blob a3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__logo" aria-label="Home"><span class="nav__mark" id="navMark">SK</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Certifications</a></li>
+        <li><a href="#profiles">GitHub</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact" class="nav__cta">Contact</a></li>
+      </ul>
     </nav>
-    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☾</button>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
   </header>
 
-  <main>
+  <main id="main">
+
+    <!-- ===================== HERO / DASHBOARD ===================== -->
     <section class="hero" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow">SOFTWARE ENGINEER · PYTHON · NETWORK AUTOMATION</p>
-        <div class="hero-title-row">
-          <img
-            class="profile-hero"
-            src="Sanjana_Professional.jpeg"
-            alt="Sanjana Kadapatti"
-          />
-          <h1>
-            <span class="line-one">Hi, I'm</span>
-            <span class="line-two">Sanjana Kadapatti</span>
-          </h1>
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <h1 class="sr-only" id="heroName">Sanjana Kadapatti</h1>
+
+      <div class="hero__panel">
+        <p class="hero__hello"><span class="wave">👋</span> Hi, I'm <span id="heroFirst">Sanjana</span></p>
+        <p class="hero__role"><span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
+        <p class="hero__tagline" id="heroTagline"></p>
+
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary magnetic"><span>View my work</span></a>
+          <a href="assets/resume.pdf" class="btn btn--ghost magnetic" id="heroResume" download><span>Download resume</span></a>
         </div>
-        <p class="hero-text">
-          Computer Science Engineer building practical software with Python, backend development,
-          networking, and automation.
-        </p>
-        <div class="hero-card education-card">
+
+        <div class="dash-stats" id="heroStats"></div>
+      </div>
+
+      <!-- Animated character (original design, pure SVG — no images) -->
+      <div class="hero__girl" id="girl">
+        <div class="girl__halo" aria-hidden="true"></div>
+        <span class="girl__float f1" aria-hidden="true">&lt;/&gt;</span>
+        <span class="girl__float f2" aria-hidden="true">{ }</span>
+        <span class="girl__float f3" aria-hidden="true">✦</span>
+        <span class="girl__float f4" aria-hidden="true">λ</span>
+        <span class="girl__float f5" aria-hidden="true">✦</span>
+
+        <div class="girl__bubble" id="girlBubble" role="status" aria-live="polite"></div>
+
+        <button class="girl__hit" id="girlHit" type="button" aria-label="Say hi to the character"></button>
+
+        <svg class="girl__svg" viewBox="0 0 400 560" aria-hidden="true">
+          <defs>
+            <linearGradient id="gHair" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3A2F78"/>
+              <stop offset="1" stop-color="#1B1640"/>
+            </linearGradient>
+            <linearGradient id="gHairFront" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#4A3C98"/>
+              <stop offset="1" stop-color="#241D55"/>
+            </linearGradient>
+            <linearGradient id="gIris" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2B1F6B"/>
+              <stop offset=".55" stop-color="#8C7BFF"/>
+              <stop offset="1" stop-color="#6CF0D2"/>
+            </linearGradient>
+            <linearGradient id="gJacket" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2A2F6E"/>
+              <stop offset="1" stop-color="#181B48"/>
+            </linearGradient>
+            <linearGradient id="gSleeve" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#232861"/>
+              <stop offset="1" stop-color="#30367D"/>
+            </linearGradient>
+            <linearGradient id="gFade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset=".78" stop-color="#fff"/>
+              <stop offset="1" stop-color="#000"/>
+            </linearGradient>
+            <mask id="mFade"><rect width="400" height="560" fill="url(#gFade)"/></mask>
+          </defs>
+
+          <g mask="url(#mFade)">
+          <g class="g-char">
+            <!-- back hair -->
+            <g class="g-back">
+              <path class="hair-back" fill="url(#gHair)" d="M112,178 C100,108 150,80 200,80 C250,80 300,108 288,178 C302,262 300,380 314,480 C286,494 254,484 240,466 L160,466 C146,484 114,494 86,480 C100,380 98,262 112,178 Z"/>
+            </g>
+
+            <!-- body: hood, neck, jacket -->
+            <g class="g-body">
+              <path fill="#2E3478" d="M138,356 C150,322 250,322 262,356 Z"/>
+              <path fill="#FFE1D2" d="M181,286 L181,352 L219,352 L219,286 Z"/>
+              <path fill="#F0BBA9" d="M181,300 Q200,326 219,300 L219,318 Q200,336 181,318 Z"/>
+              <path fill="url(#gJacket)" d="M64,560 C62,440 92,372 150,352 L182,344 L200,372 L218,344 L250,352 C308,372 338,440 336,560 Z"/>
+              <path fill="#ECEEFF" d="M182,344 L218,344 L210,440 L190,440 Z"/>
+              <path fill="none" stroke="#6CF0D2" stroke-width="3" stroke-linecap="round" d="M182,346 L190,440 M218,346 L210,440"/>
+              <path fill="#6CF0D2" d="M194,380 h12 v14 h-12 Z" opacity=".9"/>
+              <text x="200" y="391" font-size="9" font-weight="800" text-anchor="middle" fill="#0B0D24" font-family="monospace">&lt;/&gt;</text>
+              <!-- headphones resting on the neck -->
+              <path fill="none" stroke="#8C7BFF" stroke-width="7" stroke-linecap="round" d="M158,352 C164,392 236,392 242,352"/>
+              <rect x="140" y="334" width="26" height="36" rx="11" fill="#8C7BFF" transform="rotate(-18 153 352)"/>
+              <rect x="146" y="340" width="14" height="24" rx="6" fill="#1B1640" transform="rotate(-18 153 352)"/>
+              <rect x="234" y="334" width="26" height="36" rx="11" fill="#8C7BFF" transform="rotate(18 247 352)"/>
+              <rect x="240" y="340" width="14" height="24" rx="6" fill="#1B1640" transform="rotate(18 247 352)"/>
+            </g>
+
+            <!-- crossed arms -->
+            <g class="g-arms">
+              <path fill="url(#gSleeve)" d="M104,364 C84,374 70,412 74,456 C76,474 80,488 88,496 L132,486 C122,452 120,414 126,384 C120,372 113,365 104,364 Z"/>
+              <path fill="url(#gSleeve)" d="M296,364 C316,374 330,412 326,456 C324,474 320,488 312,496 L268,486 C278,452 280,414 274,384 C280,372 287,365 296,364 Z"/>
+              <!-- lower forearm (left arm, goes right) -->
+              <path fill="#2A3070" d="M86,474 C140,450 214,436 276,428 L284,462 C224,468 152,482 104,504 Z"/>
+              <path fill="none" stroke="#6CF0D2" stroke-width="5" d="M262,430 L268,464"/>
+              <path fill="#FFE1D2" d="M274,424 C290,416 306,421 305,434 C307,445 300,455 286,458 C280,452 277,440 274,424 Z"/>
+              <path fill="none" stroke="#E9A994" stroke-width="1.6" stroke-linecap="round" d="M288,430 L300,431 M288,438 L301,440 M287,446 L298,449"/>
+              <!-- upper forearm (right arm, goes left) -->
+              <path fill="#323980" d="M314,470 C262,448 184,436 124,430 L116,464 C176,470 250,484 296,504 Z"/>
+              <path fill="none" stroke="#6CF0D2" stroke-width="5" d="M138,431 L132,466"/>
+              <path fill="#FFE1D2" d="M126,426 C110,418 94,423 95,436 C93,447 100,457 114,460 C120,454 123,442 126,426 Z"/>
+              <path fill="none" stroke="#E9A994" stroke-width="1.6" stroke-linecap="round" d="M112,432 L100,433 M112,440 L99,442 M113,448 L102,451"/>
+            </g>
+
+            <!-- head -->
+            <g class="g-head">
+              <g class="lock lock-l">
+                <path fill="url(#gHairFront)" d="M140,166 C120,220 116,300 126,388 C132,394 140,392 145,386 C140,322 146,252 158,200 Z"/>
+              </g>
+              <g class="lock lock-r">
+                <path fill="url(#gHairFront)" d="M260,166 C280,220 284,300 274,388 C268,394 260,392 255,386 C260,322 254,252 242,200 Z"/>
+              </g>
+
+              <path fill="#FFE1D2" d="M138,196 C138,134 262,134 262,196 C262,236 258,262 241,285 C229,300 215,310 200,312 C185,310 171,300 159,285 C142,262 138,236 138,196 Z"/>
+              <path fill="#F3C6B6" opacity=".7" d="M140,200 C160,214 240,214 260,200 L260,186 L140,186 Z"/>
+              <ellipse cx="160" cy="266" rx="11" ry="5" fill="#FF8FA3" opacity=".38"/>
+              <ellipse cx="240" cy="266" rx="11" ry="5" fill="#FF8FA3" opacity=".38"/>
+
+              <!-- eyes -->
+              <g class="eye eye-l">
+                <ellipse cx="170" cy="240" rx="15" ry="16" fill="#fff"/>
+                <g class="iris">
+                  <ellipse cx="171" cy="242" rx="11" ry="14" fill="url(#gIris)"/>
+                  <ellipse cx="171" cy="243" rx="5" ry="7" fill="#120E33"/>
+                  <circle cx="166" cy="235" r="4" fill="#fff"/>
+                  <circle cx="176" cy="249" r="1.8" fill="#fff" opacity=".9"/>
+                </g>
+                <path fill="#FFE1D2" d="M150,214 L192,214 L192,229 C180,222 162,222 150,232 Z"/>
+                <path fill="none" stroke="#1B1640" stroke-width="4.5" stroke-linecap="round" d="M151,233 C161,222 179,221 190,228"/>
+                <path fill="none" stroke="#1B1640" stroke-width="3" stroke-linecap="round" d="M151,233 L143,229"/>
+                <path fill="none" stroke="#1B1640" stroke-width="1.5" stroke-linecap="round" d="M161,257 Q171,260 181,256"/>
+              </g>
+              <g class="eye eye-r">
+                <ellipse cx="230" cy="240" rx="15" ry="16" fill="#fff"/>
+                <g class="iris">
+                  <ellipse cx="229" cy="242" rx="11" ry="14" fill="url(#gIris)"/>
+                  <ellipse cx="229" cy="243" rx="5" ry="7" fill="#120E33"/>
+                  <circle cx="224" cy="235" r="4" fill="#fff"/>
+                  <circle cx="234" cy="249" r="1.8" fill="#fff" opacity=".9"/>
+                </g>
+                <path fill="#FFE1D2" d="M208,214 L250,214 L250,232 C238,222 220,222 208,229 Z"/>
+                <path fill="none" stroke="#1B1640" stroke-width="4.5" stroke-linecap="round" d="M210,228 C221,221 239,222 249,233"/>
+                <path fill="none" stroke="#1B1640" stroke-width="3" stroke-linecap="round" d="M249,233 L257,229"/>
+                <path fill="none" stroke="#1B1640" stroke-width="1.5" stroke-linecap="round" d="M219,256 Q229,260 239,257"/>
+              </g>
+
+              <path fill="none" stroke="#E2A08E" stroke-width="1.8" stroke-linecap="round" d="M199,262 L201,267"/>
+              <!-- confident smirk (and an open smile used while talking) -->
+              <path class="mouth-smirk" fill="none" stroke="#B4566A" stroke-width="2.6" stroke-linecap="round" d="M188,283 Q199,288 210,282 Q214,280 217,275"/>
+              <path class="mouth-open" fill="#B4566A" d="M189,281 Q201,284 213,279 Q210,293 200,293 Q191,292 189,281 Z"/>
+
+              <!-- front hair / bangs -->
+              <path fill="url(#gHairFront)" d="M130,204 C124,128 168,96 200,96 C238,96 276,126 270,204 L259,184 L252,214 L240,178 L228,204 L216,168 L204,198 L191,166 L178,204 L166,176 L156,212 L147,182 Z"/>
+              <path fill="none" stroke="#8C7BFF" stroke-width="5" stroke-linecap="round" opacity=".55" d="M156,128 C176,114 224,114 244,128"/>
+              <!-- eyebrows: one raised = confident -->
+              <path fill="none" stroke="#1B1640" stroke-width="3.4" stroke-linecap="round" d="M154,212 Q168,206 184,210"/>
+              <path class="brow-r" fill="none" stroke="#1B1640" stroke-width="3.4" stroke-linecap="round" d="M216,206 Q232,197 248,204"/>
+              <!-- hair clip -->
+              <path fill="#6CF0D2" d="M252,146 l4,8 9,1 -7,6 2,9 -8,-5 -8,5 2,-9 -7,-6 9,-1 Z"/>
+              <!-- ahoge -->
+              <g class="ahoge">
+                <path fill="url(#gHairFront)" d="M198,100 C202,74 226,62 234,72 C222,72 210,84 205,102 Z"/>
+              </g>
+            </g>
+          </g>
+          </g>
+        </svg>
+
+        <div class="dash-card dash-card--status girl__status">
+          <span class="pulse" aria-hidden="true"></span>
           <div>
-            <strong>Education</strong>
-            <p>B.E. in Computer Science<br />KLE Institute of Technology, Hubli · 2020–2024<br />CGPA: 8.6/10</p>
+            <strong id="heroAvail"></strong>
+            <small id="heroLoc"></small>
           </div>
         </div>
-        <div class="actions">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn secondary" href="#contact">Contact Me</a>
-        </div>
-        <div class="quick-links">
-          <a href="https://www.linkedin.com/in/sanjana-kadapatti-92a793217/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="https://github.com/sanjanak24" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="mailto:kadapattisanjana@gmail.com">Email ↗</a>
-        </div>
+      </div>
+
+      <a href="#education" class="scroll-cue" aria-label="Scroll to education">
+        <span class="scroll-cue__mouse"><span></span></span>
+      </a>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true"><div class="marquee__track" id="marquee"></div></div>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section class="section" id="education">
+      <div class="section__head">
+        <h2 class="section__title split">Education</h2>
+        <p class="section__lead reveal">Where I learned the fundamentals.</p>
+      </div>
+      <div class="timeline" id="eduTimeline">
+        <div class="timeline__line"><span class="timeline__fill"></span></div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="section-head">
-        <p class="eyebrow">ABOUT</p>
-        <h2>Building practical software with automation and network systems.</h2>
-      </div>
-      <p class="lead">
-        I enjoy turning engineering problems into reliable, automation-driven solutions. My experience spans
-        Python-based automation for IOS-XR workflows, SIM topology automation, document intelligence workflows,
-        and backend/web development with a strong focus on practical, scalable systems.
-      </p>
-    </section>
-
-    <section id="experience" class="section">
-      <div class="section-head">
-        <p class="eyebrow">EXPERIENCE</p>
-        <h2>Engineering experience</h2>
-      </div>
-      <article class="timeline-card">
-        <div class="timeline-top">
-          <div>
-            <h3>Software Engineer Trainee</h3>
-            <p class="company">Cisco Systems · Bengaluru</p>
-          </div>
-          <span>Aug 2025 – Aug 2026</span>
-        </div>
-        <ul>
-          <li>Architected a Python-based documentation workflow for IOS-XR AP code using AST/tokenize metadata extraction, structured documentation generation, and Git/GitHub automation to improve documentation accuracy and consistency.</li>
-          <li>Built deterministic Python pipelines for intent extraction, documentation-gap analysis, annotated file creation, and PR-ready publishing using YAML configuration, CLI orchestration, and structured metadata processing.</li>
-          <li>Developed automated AST/tokenize-based code analysis to identify missing documentation across functions, classes, logging statements, and Allure steps, generating structured reports for targeted updates.</li>
-          <li>Developed a SIM topology automation framework using Python, PyYAML, YAML/JSON parsing, AP/Sub-AP metadata, testcase topology variants, and CAFY POD/topology JSON inputs to generate simulator-ready configurations.</li>
-          <li>Automated topology inventory, validation, metadata normalization, and HTML/CSV coverage reporting, reducing manual topology creation and improving consistency across simulator configurations.</li>
-          <li>Automated end-to-end workflows for AP/Sub-AP detection, generated-file manifests, Git branching, CDET integration, and GitHub PR flows, enabling controlled and review-ready documentation changes.</li>
-          <li>Integrated Python scripting, Shell/CLI automation, Git/GitHub, and testbed workflows to streamline IOS-XR automation tasks and reduce repetitive manual operations across documentation and SIM topology processes.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="section-head">
-        <p class="eyebrow">PROJECTS</p>
-        <h2>Selected work</h2>
-      </div>
-      <div class="project-grid">
-        <article class="project-card featured">
-          <span class="tag">n8n · Workflow Automation</span>
-          <h3>Document Intelligence System</h3>
-          <p>Workflow-driven document processing system that ingests PDFs from Google Drive and enables users to query stored content through Telegram for faster information access.</p>
-          <div class="stack"><span>n8n</span><span>Python</span><span>Google Drive</span><span>Telegram</span></div>
-        </article>
-        <article class="project-card">
-          <span class="tag">Web · Backend</span>
-          <h3>E-Fy – A Techtainment Book</h3>
-          <p>KSCST-sponsored web application for event scheduling, registration, and data management, built using HTML5, CSS3, JavaScript, and MySQL with backend integration and validation.</p>
-          <div class="stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span><span>MySQL</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <div class="section-head">
-        <p class="eyebrow">SKILLS</p>
-        <h2>Technical toolkit</h2>
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section" id="skills">
+      <div class="section__head">
+        <h2 class="section__title split">Skills</h2>
+        <p class="section__lead reveal">The tools I reach for, and how well I know them.</p>
       </div>
       <div class="skills">
-        <div><h3>Programming Languages</h3><p>Java · Python</p></div>
-        <div><h3>Web Development</h3><p>HTML · CSS · JavaScript · REST APIs · GitHub API</p></div>
-        <div><h3>Databases</h3><p>SQL · MySQL · MongoDB (NoSQL) · DBMS</p></div>
-        <div><h3>Core CS Fundamentals</h3><p>Object-Oriented Programming (OOP) · Data Structures & Algorithms · Operating Systems</p></div>
-        <div><h3>Development Tools</h3><p>Linux · Shell Scripting · Git · GitHub</p></div>
-        <div><h3>Networking</h3><p>Cisco IOS-XR · CCNA-level Networking · OSI/TCP-IP · IPv4/IPv6 · Subnetting · Routing · Switching · VLANs · STP · OSPF · NAT · ACLs · DHCP · DNS · Network Security · Troubleshooting</p></div>
-        <div><h3>Network Automation</h3><p>Python Scripting · CLI Automation · YAML/JSON Parsing · CDET · Testbed Integration · PR Automation</p></div>
-      </div>
-    </section>
-
-    <section class="section credentials">
-      <div class="section-head">
-        <p class="eyebrow">CREDENTIALS</p>
-        <h2>Certifications</h2>
-      </div>
-      <div class="credential-grid">
-        <div>Cisco Certified Network Associate (CCNA)</div>
-        <div>Cisco Certified Network Associate Automation</div>
-        <div>Java Basics certification — Coding Ninjas (Code 360)</div>
-      </div>
-    </section>
-
-    <section class="section credentials">
-      <div class="section-head">
-        <p class="eyebrow">RECOGNITION</p>
-        <h2>Awards & Recognition</h2>
-      </div>
-      <div class="credential-grid">
-        <div>Cisco “Play to Win” Award for the project “AI-Assisted Code Documentation Generator”</div>
-        <div>Published a research paper on “AI-driven intent-aware code documentation” in Cisco’s proprietary “Qubit” platform</div>
-        <div>KSCST sponsorship for E-Fy – A Techtainment Book</div>
-      </div>
-    </section>
-
-    <section class="section resume-section">
-      <div class="section-head">
-        <p class="eyebrow">RESUME</p>
-        <h2>Download my profile</h2>
-      </div>
-      <div class="resume-card">
-        <div>
-          <h3>Professional resume</h3>
-          <p>Download my latest resume for experience, skills, and project highlights.</p>
+        <div class="orbit reveal" id="orbit" aria-hidden="true">
+          <div class="orbit__core"><span id="orbitCore">SK</span></div>
+          <div class="orbit__ring r1"></div>
+          <div class="orbit__ring r2"></div>
+          <div class="orbit__ring r3"></div>
         </div>
-        <a class="btn primary" href="Sanjana_Kadapatti_Resume.pdf" download="Sanjana_Kadapatti_Resume.pdf">Download Resume</a>
+        <div class="skills__panel">
+          <div class="tabs" role="tablist" id="skillTabs"></div>
+          <div class="skill-grid" id="skillGrid" role="tabpanel"></div>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <p class="eyebrow">LET'S CONNECT</p>
-      <h2>Looking for software engineering opportunities.</h2>
-      <p>Interested in software development, backend engineering and automation.</p>
-      <a class="btn primary" href="mailto:kadapattisanjana@gmail.com">Email Sanjana</a>
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="section" id="experience">
+      <div class="section__head">
+        <h2 class="section__title split">Experience</h2>
+        <p class="section__lead reveal">Teams I've shipped with and what I built there.</p>
+      </div>
+      <div class="exp" id="expList">
+        <div class="exp__line"><span class="exp__fill"></span></div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section" id="projects">
+      <div class="section__head">
+        <h2 class="section__title split">Projects</h2>
+        <p class="section__lead reveal">Things I've designed, built and shipped.</p>
+      </div>
+      <div class="filters reveal" id="filters" role="group" aria-label="Filter projects"></div>
+      <div class="projects" id="projectGrid"></div>
+    </section>
+
+    <!-- ===================== ACHIEVEMENTS ===================== -->
+    <section class="section" id="achievements">
+      <div class="section__head">
+        <h2 class="section__title split">Certifications &amp; Recognition</h2>
+        <p class="section__lead reveal">Certifications, recognition, and published research.</p>
+      </div>
+      <div class="achs" id="achGrid"></div>
+    </section>
+
+    <!-- ===================== CODING PROFILES ===================== -->
+    <section class="section" id="profiles">
+      <div class="section__head">
+        <h2 class="section__title split">GitHub</h2>
+        <p class="section__lead reveal">Explore my code and projects.</p>
+      </div>
+      <div class="profiles" id="profileGrid"></div>
+    </section>
+
+    <!-- ===================== RESUME ===================== -->
+    <section class="section" id="resume">
+      <div class="section__head">
+        <h2 class="section__title split">Resume</h2>
+        <p class="section__lead reveal">The one-page version of everything above.</p>
+      </div>
+      <div class="resume reveal">
+        <div class="resume__doc tilt">
+          <div class="resume__paper">
+            <span class="resume__line w80"></span>
+            <span class="resume__line w50"></span>
+            <span class="resume__gap"></span>
+            <span class="resume__line w95"></span>
+            <span class="resume__line w90"></span>
+            <span class="resume__line w70"></span>
+            <span class="resume__gap"></span>
+            <span class="resume__line w95"></span>
+            <span class="resume__line w85"></span>
+            <span class="resume__line w60"></span>
+            <span class="resume__gap"></span>
+            <span class="resume__line w90"></span>
+            <span class="resume__line w75"></span>
+            <div class="resume__scan"></div>
+          </div>
+        </div>
+        <div class="resume__info">
+          <h3>Grab a copy</h3>
+          <p>A PDF with my education, experience, projects and skills. Updated <span id="resumeDate"></span>.</p>
+          <div class="resume__actions">
+            <a class="btn btn--primary magnetic" id="resumeDownload" href="assets/resume.pdf" download><span>Download PDF</span></a>
+            <button class="btn btn--ghost magnetic" id="resumeView" type="button"><span>Preview here</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section section--contact" id="contact">
+      <div class="contact">
+        <div class="contact__intro">
+          <h2 class="contact__title split">Let's build something together.</h2>
+          <p class="reveal">Have a role, a project or just a question? My inbox is open and I usually reply within a day.</p>
+          <a class="contact__mail reveal" id="contactMail" href="#"></a>
+          <div class="socials reveal" id="socials"></div>
+        </div>
+
+        <form class="form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <input id="f-name" name="name" type="text" placeholder=" " required autocomplete="name" />
+            <label for="f-name">Your name</label>
+          </div>
+          <div class="field">
+            <input id="f-email" name="email" type="email" placeholder=" " required autocomplete="email" />
+            <label for="f-email">Your email</label>
+          </div>
+          <div class="field">
+            <textarea id="f-msg" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="f-msg">Message</label>
+          </div>
+          <button class="btn btn--primary btn--block magnetic" type="submit"><span id="sendLabel">Send message</span></button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <span>© 2026 Sanjana Kadapatti</span>
-    <span>Built with HTML · CSS · JavaScript</span>
+  <footer class="footer">
+    <p>© <span id="year"></span> <span id="footName">Sanjana Kadapatti</span>. Built from scratch with HTML, CSS and JavaScript.</p>
+    <a href="#home" class="to-top" aria-label="Back to top">↑</a>
   </footer>
-  <script src="script.js"></script>
+
+  <!-- Resume preview modal -->
+  <div class="modal" id="resumeModal" role="dialog" aria-modal="true" aria-label="Resume preview" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box">
+      <button class="modal__close" data-close aria-label="Close preview">✕</button>
+      <iframe id="resumeFrame" title="Resume PDF"></iframe>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
